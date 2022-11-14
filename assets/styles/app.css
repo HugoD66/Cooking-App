@@ -11828,6 +11828,14 @@ footer {
   right: 0;
   left: 0;
 }
+footer p {
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+  font-size: 1.4em;
+  margin: 5%;
+  text-align: center;
+}
 footer .template-footer {
   display: flex;
   align-items: center;
@@ -11839,8 +11847,16 @@ footer .template-footer .icones-footer {
   align-items: end;
   justify-content: center;
   flex-direction: row;
-  margin-left: 3%;
-  margin-bottom: 1%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+footer .template-footer .icones-footer img {
+  width: 9em;
+  transition: 0.5s ease-in-out;
+}
+footer .template-footer .icones-footer img:hover {
+  filter: blur(2px);
+  transition: 0.5s ease-in-out;
 }
 footer .template-footer .icones-contact {
   display: flex;
@@ -11849,18 +11865,19 @@ footer .template-footer .icones-contact {
   flex-direction: row;
 }
 footer .template-footer .icones-contact img {
-  width: 3.5em;
-  margin-right: 5%;
+  width: 5em;
+  margin-right: 4%;
+  margin-left: 4%;
   background-color: rgba(0, 0, 255, 0.24);
   border: 1px solid black;
   border-radius: 90%;
   padding: 4px;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
-
-.contain-components {
-  position: relative;
-  margin-top: 20%;
-  height: auto;
+footer .template-footer .icones-contact img:hover {
+  filter: blur(2px);
+  transition: 0.5s ease-in-out;
 }
 
 .barreHorizontaleTwo {
@@ -11870,6 +11887,12 @@ footer .template-footer .icones-contact img {
   height: 2px;
   float: top;
   margin: 0px auto 5%;
+}
+
+.contain-components {
+  position: relative;
+  margin-top: 10%;
+  height: auto;
 }
 
 /*# sourceMappingURL=app.css.map */

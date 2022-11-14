@@ -35,6 +35,14 @@ footer {
     z-index: 1;
     right: 0;
     left: 0;
+    p {
+        text-decoration: none;
+        color: black;
+        white-space: nowrap;
+        font-size: 1.4em;
+        margin: 5%;
+        text-align: center;
+    }
     .template-footer {
         display: flex;
         align-items: center;
@@ -45,10 +53,15 @@ footer {
             align-items: end;
             justify-content: center;
             flex-direction: row;
-            margin-left: 3%;
-            margin-bottom: 1%;
+            margin-left: 5%;
+            margin-bottom: 2%;
             img {
-
+                width: 9em;
+                transition: 0.5s ease-in-out;
+                &:hover {
+                    filter: blur(2px);
+                    transition: 0.5s ease-in-out;
+                }
             }
         }
         .icones-contact {
@@ -57,20 +70,23 @@ footer {
             justify-content: center;
             flex-direction: row;
             img {
-                width: 3.5em;
-                margin-right: 5%;
+                width: 5em;
+                margin-right: 4%;
+                margin-left: 4%;
+
                 background-color: rgba(0, 0, 255, 0.24);
                 border: 1px solid black;
                 border-radius: 90%;
                 padding: 4px;
+                transition: 0.5s ease-in-out;
+                cursor: pointer;
+                &:hover {
+                    filter: blur(2px);
+                    transition: 0.5s ease-in-out;
+                }
             }
         }
     }
-}
-.contain-components {
-    position:relative;
-    margin-top: 20%;
-    height: auto;
 }
 .barreHorizontaleTwo {
     position: relative;
@@ -79,4 +95,9 @@ footer {
     height: 2px;
     float: top;
     margin: 0px auto 5%;
+}
+.contain-components {
+    position:relative;
+    margin-top: 10%;
+    height: auto;
 }

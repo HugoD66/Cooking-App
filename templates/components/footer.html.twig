@@ -3,10 +3,17 @@
         <a href="{{ path('app_accueil') }}">
             <div class="icones-footer">
                 <img src='{{ asset('pic/icone/icone-easycook.png')}}' alt="PastEasy">
-                <p >PastEasy,les Mains dans la Pâte </p>
+                <p>PastEasy <br>Les Mains dans la Pâte </p>
             </div>
         </a>
         <div class="icones-contact">
+            {% if app.user %}
+                <p><a href="{{ path('app_logout') }}">Deconnexion</a></p>
+                {% else %}
+                <p><a href="{{ path('app_login') }}">Connexion</a></p>
+
+            {% endif %}
+
             <img src='{{ asset('pic/icone/envelope-fill.svg')}}' alt="PastEasy">
             <img src='{{ asset('pic/icone/facebook.svg')}}' alt="PastEasy">
             <img src='{{ asset('pic/icone/telephone-fill.svg')}}' alt="PastEasy">

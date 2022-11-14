@@ -15,7 +15,7 @@ import desktopBack from "../../../public/pic/desk/accueil/accueil-desktop.jpg";
 
 
 
-const Accueil = () => {
+const Accueil = (props) => {
 //Modal Connexion Inscription
     const modalConnexion = useRef();
     const modalInfo = useRef();
@@ -208,12 +208,27 @@ const Accueil = () => {
             <ModalCustom>
                 <Modal ref={modalConnexion}>
                     <ModalTitleAndLogo>
-                        <h2>Nous Rejoindre</h2>
                         <img src={Icone} alt=""/>
                     </ModalTitleAndLogo>
-                    <div className="button-list">
-                        <button type="button"><a href="/PastEasy-Connexion">Connexion</a></button>
-                        <button type="button"><a href="/PastEasy-Enregistrement">Inscription</a></button>
+                    <div className="connec-regist">
+                        <div className="button-list">
+                            <h2>Se Connecter</h2>
+                            <button type="button">
+                                <a href="/PastEasy-Connexion">
+                                    Connexion
+                                </a>
+                            </button>
+                        </div>
+                        <span className="vertical-line"></span>
+
+                        <div className="button-list">
+                            <h2>Nous Rejoindre</h2>
+                            <button type="button">
+                                <a href="/PastEasy-Enregistrement">
+                                    Inscription
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </Modal>
             </ModalCustom>
@@ -255,12 +270,28 @@ const ModalCustom = styled.div`
     right: 0;
     padding: 30px;
     border-radius: 15px;
+  }
+  .connec-regist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    flex-direction: row;
+    width: 100%;
+    height: 20em;
+    border: 1px solid black;
     .button-list {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      margin: 20% auto;
+        width: 50%; 
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    .vertical-line{
+      border-left: 2px solid #000;
+      display: inline-block;
+      height: 130px;
     }
   }
 `;
@@ -279,7 +310,7 @@ const ModalTitleAndLogo = styled.div`
   }
   img {
     max-width: 20%;
-    margin-left: 50%;
+    margin-left: 70%;
     @media (min-width: 1500px) {
       max-width: 5%;
     }

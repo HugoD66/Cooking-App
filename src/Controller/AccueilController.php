@@ -11,6 +11,7 @@ class AccueilController extends AbstractController
     #[Route('/', name: 'app_accueil')]
     public function index(): Response
     {
+
         return $this->render('accueil/accueil.html.twig', [
             'title' => 'PastEasy',
         ]);
@@ -19,8 +20,12 @@ class AccueilController extends AbstractController
     #[Route('/PastEasy-Accueil', name: 'app_pasteasy_accueil')]
     public function accueil(): Response
     {
+        $user = $this->getUser();
+
+
         return $this->render('accueil/accueil_pasteasy.html.twig', [
             'title' => 'PastEasy - Accueil',
+            'user' => $user,
         ]);
     }
 }

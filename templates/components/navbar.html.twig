@@ -1,10 +1,27 @@
 <div class="navbar-custom">
 <ul>
-    <li><a href="#">Compte</a></li>
-    <li><a href="{{ path('app_actu') }}">Actus</a></li>
-    <li><a href="{{ path('app_liste_pate') }}">Recettes</a></li>
-</ul>
+        {% if app.user %}
+            {%  if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('app_gestion_admin', { 'id' : app.user.id})}} ">Compte</a></li>
+            {% elseif is_granted('ROLE_USER') %}
+                <li><a href="{{ path('app_gestion_utilisateur', { 'id' : app.user.id}) }}">Compte</a></li>
+            {% else %}
+                {# Redirection creation compte #}
+                <li><a href="{{ path('app_redirect_access') }}">Compte</a></li>
+            {% endif %}
+        {% else %}
+        {# Redirection creation compte #}
+            <li><a href="{{ path('app_redirect_access') }}">Compte</a></li>
+        {% endif %}
+        {% if app.user %}
+            <li><a href="{{ path('app_actu') }}">Actus</a></li>
+            <li><a href="{{ path('app_liste_pate') }}">Recettes</a></li>
+        {% else %}
+            <li><a href="{{ path('app_redirect_access') }}">Actus</a></li>
+            <li><a href="{{ path('app_redirect_access') }}">Recettes</a></li>
+        {% endif %}
 
+</ul>
 </div>
 
 

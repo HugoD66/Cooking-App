@@ -24,6 +24,9 @@ class Ingredient
     #[ORM\ManyToMany(targetEntity: Pate::class, mappedBy: 'ingredient')]
     private Collection $pates;
 
+    #[ORM\Column(length: 255)]
+    private ?string $picture = null;
+
     public function __construct()
     {
         $this->pates = new ArrayCollection();
@@ -81,6 +84,18 @@ class Ingredient
         if ($this->pates->removeElement($pate)) {
             $pate->removeIngredient($this);
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
