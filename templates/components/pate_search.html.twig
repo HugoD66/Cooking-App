@@ -1,0 +1,26 @@
+<div{{ attributes }}>
+    <input
+            class="input-search-suite"
+            type="text"
+            data-model="query"
+            value="{{ query }}"
+            placeholder="Rechercher une recette..."
+    />
+
+    {% if query is empty  %}
+        {% for pate in this.AllPates %}
+            {{ component('pate', {
+                id: pate.id
+            }) }}
+        {% endfor %}
+    {% else %}
+        {% for pate in this.pates %}
+            {{ component('pate', {
+                'id': pate.id
+            }) }}
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+

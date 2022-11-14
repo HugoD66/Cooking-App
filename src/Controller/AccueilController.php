@@ -12,7 +12,15 @@ class AccueilController extends AbstractController
     public function index(): Response
     {
         return $this->render('accueil/accueil.html.twig', [
-            'controller_name' => 'AccueilController',
+            'title' => 'PastEasy',
+        ]);
+    }
+
+    #[Route('/PastEasy-Accueil', name: 'app_pasteasy_accueil')]
+    public function accueil(): Response
+    {
+        return $this->render('accueil/accueil_pasteasy.html.twig', [
+            'title' => 'PastEasy - Accueil',
         ]);
     }
 }

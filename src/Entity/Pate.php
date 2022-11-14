@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\PateRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PateRepository::class)]
 class Pate
@@ -23,6 +26,8 @@ class Pate
     private ?int $time = null;
 
     #[ORM\Column]
+    #[Assert\LessThanOrEqual(5)]
+
     private ?int $difficulty = null;
 
     #[ORM\Column(length: 255)]
@@ -33,6 +38,17 @@ class Pate
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $stepThree = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $picture = null;
+
+    #[ORM\ManyToMany(targetEntity: Ingredient::class, inversedBy: 'pates')]
+    private Collection $ingredient;
+
+    public function __construct()
+    {
+        $this->ingredient = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,6 +135,42 @@ class Pate
     public function setStepThree(?string $stepThree): self
     {
         $this->stepThree = $stepThree;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ingredient>
+     */
+    public function getIngredient(): Collection
+    {
+        return $this->ingredient;
+    }
+
+    public function addIngredient(Ingredient $ingredient): self
+    {
+        if (!$this->ingredient->contains($ingredient)) {
+            $this->ingredient->add($ingredient);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredient $ingredient): self
+    {
+        $this->ingredient->removeElement($ingredient);
 
         return $this;
     }

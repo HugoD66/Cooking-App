@@ -10,5 +10,7 @@ registerReactControllerComponents(require.context('./react/controllers', true, /
 
 //Jquery
 const $ = require('jquery');
-
 require('bootstrap');
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});

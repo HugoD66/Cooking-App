@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {{ component('navbar') }}
+<div class="contain-components">
+<h1>LISTE RECETTES PATE</h1>
+        {{ component('pate_search') }}
+</div>
+
+    {{ component('footer') }}
+{% endblock %}

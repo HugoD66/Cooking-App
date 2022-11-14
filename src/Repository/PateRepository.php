@@ -39,6 +39,23 @@ class PateRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function findByQuery(string $query): array
+    {
+        if (empty($query)) {
+            return [];
+        }
+
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.name LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->orderBy('b.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
 //    /**
 //     * @return Pate[] Returns an array of Pate objects
 //     */
