@@ -7,7 +7,13 @@
     <div class="contain-components">
         <h1>GESTION ADMIN</h1>
 
+<h2>Creation Ingredients</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.picture) }}
 
+        {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+    {{ form_end(form) }}
 
 
     </div>

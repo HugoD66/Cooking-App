@@ -29,6 +29,8 @@ class AppFixtures extends Fixture
             $pate = new Pate();
             $pate->setName($faker->name());
             $pate->setType($faker->sentence());
+            $pate->setDescription($faker->text());
+
             $pate->setTime($faker->numberBetween(1, 60));
             $pate->setDifficulty($faker->numberBetween(1, 5));
             $pate->setStepOne($faker->paragraph());

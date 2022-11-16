@@ -1,8 +1,32 @@
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{ this.pate.name }}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+
+
+<div class="recette-liste">
+        <div class="liste-id">
+                <div class="name-link">
+                        <h2><u>{{ this.pate.name }}</u></h2>
+                        <button type="button" >
+                                <a href="{{ path('app_pate_id', { 'id' : this.pate.id}) }}">
+                                        En <br>savoir plus
+                                </a>
+                        </button>
+                </div>
+                <div class="explain-picture">
+                        <div class="explain">
+                                <h4>Difficultée : </h4>
+                                <p>{{ this.pate.difficulty }} A FAIRE</p>
+                                <h4>Type de pâte : </h4>
+                                <p>{{ this.pate.type }}</p>
+                                <h4>Nombre d'ingrédients :</h4>
+                                <p> A FAIRE</p>
+                        </div>
+                        <img src="{{ this.pate.picture }}" alt="Illustration de la recette">
+                </div>
+                <div class="barreHorizontaleOne"></div>
+
+                <div class="explain-note">
+                        <p>{{ this.pate.description }}</p>
+                </div>
+
+        </div>
+
 </div>

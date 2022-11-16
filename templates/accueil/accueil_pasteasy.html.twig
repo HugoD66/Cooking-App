@@ -4,10 +4,82 @@
 
 {% block body %}
     {{ component('navbar') }}
-<div class="contain-components">
-    <div class="barreHorizontaleTwo"></div>
+    <div class="contain-components">
+        <div {{ react_component('AuccueilPastEasy') }}></div>
+<!--Retrouvez nous -->
+            <div class="accueil-pasteasy">
+                <div class="back-partage-exp">
+                    <div class="partage-exp">
+                        <h2>Partagez votre expérience ! </h2>
+                        <p>Shortbread gummies cupcake lemon drops bonbon candy canes cake. Jujubes pastry cookie chupa chups jelly toffee gummi bears ice cream dragée. Caramels candy canes dessert oat cake pie sesame snaps. Cake marshmallow soufflé halvah toffee apple pie gummi bears powder brownie. Cupcake candy chocolate cotton candy cupcakely-o fruitcake.</p>
+                        <img src="{{ asset('pic/crea/hor-barre.png') }}" alt="">
+                        <button type="button">Rejoingnez-nous !</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sautDePage"></div>
+
+<!--Nos dernières recettes -->
+            <div class="accueil-pasteasy">
+                <div class="back-carousel-accueil">
+                    <div class="section-carousel">
+                        <!--Start Carousel-->
+                        <div class="carousel-explain">
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img class="d-block w-100" src="{{ asset('pic/supprimer-prod/1.jpg') }}" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="{{ asset('pic/supprimer-prod/2.jpg') }}" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img class="d-block w-100" src="{{ asset('pic/supprimer-prod/3.jpg') }}" alt="Third slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only"> </span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only"> </span>
+                                </a>
+                            </div>
+                        <!--End Carousel-->
+                            <div class="explainCarousel">
+                                <h2>Nos dernières recettes</h2>
+
+                                <p>Shortbread gummies cupcake lemon  Caramels candy canes dessert oat cake piflé halvah toie gummi bears powder brownie. Cupcake candy chocolate cotton candy cupcakely-o fruitcake.</p>
+                                <button type="button">Notre liste</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sautDePage"></div>
+
+<!-- Sécuritée -->
+            <div class="accueil-pasteasy">
+                <div class="back-securite">
+                    <div class="secure">
+                        <h2>Naviguez en sécurité </h2>
+                        <p>Shortbread gummies cupcake lemon drops bonbon candy canes cake. Jujubes pastry cookie chupa chups jelly toffee gummi bears ice cream dragée. Caramels candy canes dessert oat cake pie sesame snaps. Cake marshmallow soufflé halvah toffee apple pie gummi bears powder brownie. Cupcake candy chocolate cotton candy cupcakely-o fruitcake.</p>
+                        <div class="secure-pol-buttons">
+                            <button type="button">Rejoingnez-nous !</button>
+                            <button type="button">Rejoingnez-nous !</button>
+                        </div>
 
 
-</div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
     {{ component('footer') }}
 {% endblock %}
+

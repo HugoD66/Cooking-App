@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {{ component('navbar') }}
+    <div class="contain-components">
+        <h1>PATE / ID</h1>
+
+            <h2>{{ pate.name }}</h2>
+
+
+    </div>
+    {{ component('footer') }}
+{% endblock %}

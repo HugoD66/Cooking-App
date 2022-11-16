@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    {{ component('navbar') }}
+    <div class="contain-components">
+        <h1>CREATE RECETTE</h1>
+
+{{ form(form) }}
+        <div>
+            <div id="pate_ingredient___name__">
+                <div>
+                    <label for="pate_ingredient___name___name" class="required">
+                        Name
+                    </label><input type="text" id="pate_ingredient___name___name" name="pate[ingredient][__name__][name]" required="required" />
+                </div>
+                <div>
+                    <label for="pate_ingredient___name___picture" class="required">
+                        Picture
+                    </label>
+                    <input type="file" id="pate_ingredient___name___picture" name="pate[ingredient][__name__][picture]" required="required" />
+                </div>
+                <div>
+                    <button type="submit" id="pate_ingredient___name___submit" name="pate[ingredient][__name__][submit]">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {{ component('footer') }}
+{% endblock %}

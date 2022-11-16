@@ -5,9 +5,15 @@
 {% block body %}
     {{ component('navbar') }}
 <div class="contain-components">
-<h1>LISTE RECETTES PATE</h1>
-        {{ component('pate_search') }}
+    <h1>Nos recettes</h1>
+
+
+            {{ component('pate_search', {
+                class: 'pate-search'
+            }) }}
+
 </div>
 
     {{ component('footer') }}
 {% endblock %}
+

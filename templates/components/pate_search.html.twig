@@ -1,12 +1,14 @@
+
 <div{{ attributes }}>
+
     <input
-            class="input-search-suite"
+            class="input-search-recette"
             type="text"
             data-model="query"
             value="{{ query }}"
             placeholder="Rechercher une recette..."
     />
-
+    <div class="div-avant-boucle">
     {% if query is empty  %}
         {% for pate in this.AllPates %}
             {{ component('pate', {
@@ -20,7 +22,7 @@
             }) }}
         {% endfor %}
     {% endif %}
-
+    </div>
 </div>
 
 

@@ -1,15 +1,19 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
+@import '_design.scss';
 
 body {
-    background-color: white;
+    background-color: rgba(255, 248, 236, 0.6);
 }
 .navbar-custom {
     width: 100%;
     margin: auto;
+    font-family: $navbarFont;
+    font-weight: lighter;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 0;
-    backdrop-filter: blur(3px);
+    border-bottom: 1px solid black;
+    backdrop-filter: blur(3.5px);
     ul {
         list-style-type: none;
         display: flex;
@@ -18,12 +22,22 @@ body {
         flex-direction: row;
         li {
             font-size: 3em;
+            transition: all 0.6s ease-in-out;
+
+            &:hover {
+                transform: scale(1.2);
+                transition: all 0.6s ease-in-out;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: #FCE99F wavy underline 3px;
+                }
+            }
         }
     }
-    background: hsla(72, 77%, 95%, 0.36);
-    background: linear-gradient(90deg, hsla(72, 77%, 95%, 0.36) 13%, hsla(12, 34%, 85%, 0.35) 100%);
-    background: -moz-linear-gradient(90deg, hsla(72, 77%, 95%, 0.37) 13%, hsla(12, 34%, 85%, 0.44) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(72, 77%, 95%, 0.45) 13%, hsla(12, 34%, 85%, 0.45) 100%);
 }
 footer {
     backdrop-filter: blur(3px);
@@ -32,7 +46,7 @@ footer {
     bottom: 0;
     border-top: 1px solid black;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     right: 0;
     left: 0;
     p {
@@ -73,7 +87,6 @@ footer {
                 width: 5em;
                 margin-right: 4%;
                 margin-left: 4%;
-
                 background-color: rgba(0, 0, 255, 0.24);
                 border: 1px solid black;
                 border-radius: 90%;
@@ -88,16 +101,322 @@ footer {
         }
     }
 }
+
+.contain-components {
+    position: relative;
+    height: auto;
+    width: 90%;
+    margin: 9% auto;
+    h1 {
+        font-size: 4em;
+        margin-top: 5%;
+        right: 15%;
+        font-family: 'Lato', sans-serif;
+        text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+        text-align: start;
+    }
+    .pate-search {
+        width: 100%;
+        margin: auto;
+        .div-avant-boucle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .recette-liste {
+                width: 100%;
+                margin: 5%;
+                background-color: rgba(252, 237, 201, 0.6);
+                border-radius: 10px;
+                @media screen and (min-width: 1600px) {
+                    width: 40%;
+                }
+                .liste-id {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 4%;
+                    .name-link {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        margin-bottom: 2%;
+                        h2 {
+                            font-size: 3em;
+                            text-align: end;
+                            font-family: $subtitle;
+                            color: #212121;
+                            text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+                        }
+                        button {
+                            background: radial-gradient(circle at center, #dc8d1e , #dbdc74);
+                            height: 7em;
+                            width: 7em;
+                            border-radius: 90%;
+                            border: 1px solid black;
+                            transition: all 0.6s ease-in-out;
+                            &:hover {
+                                transform: scale(1.2);
+                                transition: all 0.6s ease-in-out;
+                                background: radial-gradient(circle at center, #ffa200, #fdfec9);
+                            }
+                            a {
+                                text-decoration: none;
+                                text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+                                font-weight: bold;
+                                font-family: $subtitle;
+                                color: #1f1f1f;
+                                &:hover {
+                                    transform: scale(1.2);
+                                    transition: all 0.6s ease-in-out;
+                                    text-shadow: -2px -2px 7px rgba(255, 255, 255, 0.57);
+                                }
+                            }
+                        }
+                    }
+                    .explain-picture {
+                        justify-content: space-between;
+                        display: flex;
+                        align-items: center;
+                        margin: 4%;
+                        .explain {
+                            h4 {
+                                font-size: 1.5em;
+                                text-align: start;
+                                font-family: 'Lato', sans-serif;
+                                color: #212121;
+                                text-shadow: -1px -1px 4px rgba(0, 0, 0, 0.39);
+                            }
+                        }
+                        img {
+                            border: 1px solid black;
+                            border-radius: 90%;
+                            margin-left: 4%;
+                            margin-right: 4%;
+                            box-shadow: -1px -1px 4px rgba(0, 0, 0, 0.39);
+                        }
+                    }
+
+                    .explain-note {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        width: 80%;
+                        margin: auto;
+                        p {
+                            text-align: center;
+                            text-wrap: normal;
+                            font-family: 'Arial ', sans-serif;
+
+                        }
+                    }
+                }
+            }
+
+        }
+        .input-search-recette {
+            width: 20em;
+            margin-bottom: 5%;
+            font-size: larger;
+            border-radius: 8px;
+            border: 1px solid black;
+            font-family: $test1;
+            margin-left: 60%;
+        }
+    }
+
+    .accueil-pasteasy {
+        .back-carousel-accueil {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: #d7d9cf;
+
+            .section-carousel {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin-left: 5%;
+
+                .carousel {
+                    margin: 5% auto 5%;
+                    width: 70%;
+                    max-width: 70%;
+                }
+
+                .carousel-explain {
+                    display: flex;
+                    justify-content: end;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .explainCarousel {
+                        display: flex;
+                        justify-content: center;
+                        align-items: end;
+                        flex-direction: column;
+                        margin-right: 5%;
+                        margin-left: 5%;
+
+                        h2 {
+                            font-size: 4em;
+                            text-align: end;
+                            font-family: 'Lato', sans-serif;
+                            text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+                        }
+
+                        p {
+                            text-align: end;
+                            margin-top: 4%;
+                            font-size: 1.5em;
+                            font-family: 'Lato', sans-serif;
+                            text-shadow: -1px -1px 5px rgba(0, 0, 0, 0.39);
+                        }
+
+                        button {
+                            margin-right: 17%;
+                            margin-top: 5%;
+                            margin-bottom: 5%;
+                        }
+                    }
+                }
+            }
+        }
+        .back-partage-exp {
+            background-position: center right 10%;
+            background-repeat: no-repeat;
+            background-size: 30% 75%;
+            background-image: url("../../public/pic/desk/accueil/partagez-experience.jpg");
+            margin-top: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: #e5e7d3;
+            z-index: 4;
+
+            .partage-exp {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                text-align: start;
+                margin-left: 5%;
+
+                h2 {
+                    font-size: 4em;
+                    margin-top: 5%;
+                    font-family: 'Lato', sans-serif;
+                    text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+                }
+
+                p {
+                    margin-top: 4%;
+                    font-size: 1.5em;
+                    font-family: 'Lato', sans-serif;
+                    text-shadow: -1px -1px 5px rgba(0, 0, 0, 0.39);
+                    width: 50%;
+                }
+
+                img {
+                    margin-top: 4%;
+                    width: 30%;
+                    max-width: 30%;
+                    margin-left: 8%;
+
+                }
+
+                button {
+                    margin-left: 17%;
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                }
+            }
+        }
+        .back-securite {
+            background-position: right 20% top 40%;
+            background-repeat: no-repeat;
+            background-size: 15% 50%;
+            background-image: url("../../public/pic/desk/accueil/securitee.png");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: #dae2ca;
+
+            .secure {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                text-align: start;
+                margin-left: 5%;
+
+                h2 {
+                    font-size: 4em;
+                    margin-top: 5%;
+                    font-family: 'Lato', sans-serif;
+                    text-shadow: -2px -2px 7px rgba(0, 0, 0, 0.39);
+                }
+
+                p {
+                    margin-top: 4%;
+                    font-size: 1.5em;
+                    font-family: 'Lato', sans-serif;
+                    text-shadow: -1px -1px 5px rgba(0, 0, 0, 0.39);
+                    width: 50%;
+                }
+
+                .secure-pol-buttons {
+                    width: 80%;
+                    margin: 5% auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Saut de page accueil
+.sautDePage {
+    height: 8em;
+}
+//Barre custom horizontale 1
 .barreHorizontaleTwo {
     position: relative;
     width: 70%;
     background-color: black;
     height: 2px;
     float: top;
-    margin: 0px auto 5%;
+    margin: 2% auto 5%;
 }
-.contain-components {
-    position:relative;
-    margin-top: 10%;
-    height: auto;
+.barreHorizontaleOne {
+    position: relative;
+    width: 60%;
+    background-color: rgba(223, 180, 59, 0.6);
+    height: 1px;
+    float: top;
+    margin: 5% auto 5%;
 }
