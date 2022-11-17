@@ -1,30 +1,47 @@
 {% extends 'layout.html.twig' %}
-
 {% block title %}{{title}}{% endblock %}
 
 {% block body %}
     {{ component('navbar') }}
 
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
         <div class="contain-components">
+            <h1>Enregistrement</h1>
+            <div class="background-register-form">
+                <div class="register-form">
+                    {{ form_start(registrationForm) }}
+                        {{ form_row(registrationForm.email, {
+                            label: 'Email :'
+                        }) }}
+                        {{ form_row(registrationForm.username, {
+                            label: 'Nom d\'utilisateur',
+                            'class': 'label-form',
+                        }) }}
+                        {{ form_row(registrationForm.adress, {
+                            label: 'Adresse : '
+                        }) }}
 
-            {% for flash_error in app.flashes('verify_email_error') %}
-                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-            {% endfor %}
-            <h1>Register</h1>
-                {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
-                {{ form_row(registrationForm.username) }}
-                {{ form_row(registrationForm.adress) }}
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Mot de passe :'
+                        }) }}
+                        <div class="terms-submit">
+                            {{ form_row(registrationForm.agreeTerms, {
+                                label: 'Conditions d\'utilisation'
+                            }) }}
+                            {{ form_row(registrationForm.submit, {
+                                label: 'S\'enregistrer'
+                            }) }}
+                        </div>
 
-                {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
-                }) }}
-                {{ form_row(registrationForm.agreeTerms) }}
-                <button type="submit" class="btn">Register</button>
-            {{ form_end(registrationForm) }}
+
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
 
         </div>
     {{ component('footer') }}
 {% endblock %}
-
 

@@ -14,6 +14,7 @@ class PateIdController extends AbstractController
     public function index(ManagerRegistry $doctrine, int $id): Response
     {
         $pate = $doctrine->getRepository(Pate::class)->find($id);
+
         return $this->render('pate/id-pate.html.twig', [
             'title' => 'Pasteasy -  Recette',
             'pate' => $pate,

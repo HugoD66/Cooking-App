@@ -7,28 +7,64 @@
     <div class="contain-components">
         <h1>CREATE RECETTE</h1>
 
-{{ form(form) }}
-        <div>
-            <div id="pate_ingredient___name__">
-                <div>
-                    <label for="pate_ingredient___name___name" class="required">
-                        Name
-                    </label><input type="text" id="pate_ingredient___name___name" name="pate[ingredient][__name__][name]" required="required" />
-                </div>
-                <div>
-                    <label for="pate_ingredient___name___picture" class="required">
-                        Picture
-                    </label>
-                    <input type="file" id="pate_ingredient___name___picture" name="pate[ingredient][__name__][picture]" required="required" />
-                </div>
-                <div>
-                    <button type="submit" id="pate_ingredient___name___submit" name="pate[ingredient][__name__][submit]">
-                        Submit
-                    </button>
-                </div>
-            </div>
-        </div>
+
+
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+
+        {{ form_row(form.name, {
+            label: 'Nom :'
+        }) }}
+        {{ form_row(form.type, {
+            label: 'Type de pâte :'
+        }) }}
+        {{ form_row(form.time, {
+            label: 'Temps de préparation :'
+        }) }}
+        {{ form_row(form.difficulty, {
+            label: 'Difficultée :'
+        }) }}
+        {{ form_row(form.stepOne, {
+            label: 'Etape une :'
+        }) }}
+        {{ form_row(form.stepTwo, {
+            label: 'Etape Deux :'
+        }) }}
+        {{ form_row(form.stepThree, {
+            label: 'Etape trois :'
+        }) }}
+        {{ form_row(form.picture, {
+            label: 'Photo de la recette :'
+        }) }}
+
+        <ul id="ingredient-fields-list"
+            data-prototype="{{ form_widget(form.ingredient.vars.prototype)|e }}"
+            data-widget-tags="{{ '<li></li>'|e }}"
+            data-widget-counter="{{ form.ingredient|length }}">
+            {% for ingredientField in form.ingredient %}
+                <li>
+                    {{ form_errors(ingredientField) }}
+                    {{ form_widget(ingredientField) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="button"
+                class="add-another-collection-widget"
+                data-list-selector="#ingredient-fields-list">Add another ing</button>
+
+
+        {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+        {{ form_end(form) }}
 
     </div>
     {{ component('footer') }}
+
+    <script src="../../assets/add-collection-widget.js"></script>
+
+
 {% endblock %}
+
+
+
+

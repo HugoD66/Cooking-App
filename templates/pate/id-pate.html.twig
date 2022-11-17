@@ -5,11 +5,49 @@
 {% block body %}
     {{ component('navbar') }}
     <div class="contain-components">
-        <h1>PATE / ID</h1>
+        <div class="pate-id">
+                    <div class="pate-id-content">
+                        <img src="{{ asset('pic/supprimer-prod/3.jpg') }}"  alt="Illustration principale de la recette">
+                        {# {{ asset('recipe-picture/' ~ pate.getPicture()) }} #}
+                        <div class="pate-id-content-explain-ing">
+                        <h2>{{ pate.name }}</h2>
+                            <ul>
+                                <li>Temps de préparation : {{ pate.time }} </li>
+                                <li>Difficultée :
+                                    <div class="progress">
+                                            <div class="progress-bar w-75"
+                                                 role="progressbar"
+                                                 aria-valuenow="1"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="100"
+                                            >
+                                            </div>
+                                    </div>
+                                </li>
+                                <li>Type de pâtes : {{ pate.type }}</li>
+                                <div class="pate-id-content-ing">
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
 
-            <h2>{{ pate.name }}</h2>
-
-
+            <div class="pate-id-content-step-desc">
+                <div class="pate-id-content-step">
+                    <h3>Etape 1 :</h3>
+                    <p>{{ pate.stepOne }}</p>
+                    <h3>Etape 2 :</h3>
+                    <p>{{ pate.stepTwo }}</p>
+                    <h3>Etape 3 :</h3>
+                    <p>{{ pate.stepThree }}</p>
+                </div>
+                <span class="vertical-line"></span>
+                <div class="pate-id-content-desc">
+                    <h3>Description :</h3>
+                    <p>{{ pate.description }}</p>
+                </div>
+            </div>
+        </div>
     </div>
+
     {{ component('footer') }}
 {% endblock %}

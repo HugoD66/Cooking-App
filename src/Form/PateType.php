@@ -27,7 +27,7 @@ class PateType extends AbstractType
             ->add('ingredient', CollectionType::class, [
                 'entry_type' => IngredientType::class,
                 'allow_add' => true, // true si tu veux que l'utilisateur puisse en ajouter
-                'allow_delete' => true, // true si tu veux que l'utilisateur puisse en supprimer
+                'allow_delete' => false, // true si tu veux que l'utilisateur puisse en supprimer
                 'label' => 'Les ingrédients',
                 'entry_options' => ['label' => false],
                 'prototype' => true, //prototype : On veut qu’un prototype soit défini afin de pouvoir gérer la collection en javascript côté client.
